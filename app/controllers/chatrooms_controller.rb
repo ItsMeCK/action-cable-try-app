@@ -10,8 +10,9 @@ class ChatroomsController < ApplicationController
   # GET /chatrooms/1
   # GET /chatrooms/1.json
   def show
+    @chatroom = Chatroom.find_by(slug: params[:slug])
+    @message = Message.new
   end
-
   # GET /chatrooms/new
   def new
     @chatroom = Chatroom.new
@@ -64,7 +65,7 @@ class ChatroomsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_chatroom
-      @chatroom = Chatroom.find(params[:id])
+      @chatroom = Chatroom.find_by(slug: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
