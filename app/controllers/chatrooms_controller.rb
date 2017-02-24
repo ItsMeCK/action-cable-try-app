@@ -10,7 +10,7 @@ class ChatroomsController < ApplicationController
   # GET /chatrooms/1
   # GET /chatrooms/1.json
   def show
-    @chatroom = Chatroom.find_by(slug: params[:slug])
+    @chatroom = Chatroom.find_by(id: params[:id])
     @message = Message.new
   end
   # GET /chatrooms/new
